@@ -1,0 +1,28 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install CMake and g++
+        run: sudo apt-get update && sudo apt-get install -y cmake && sudo apt-get install g++ -y
+      - name: Configure
+        run: export CXX=/usr/bin/g++
+      - name: Build project
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make
