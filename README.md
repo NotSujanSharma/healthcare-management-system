@@ -9,5 +9,5 @@ g++ -Wall -g -std=c++11 -o hms main.cpp IOAble.cpp Menu.cpp Patient.cpp PreTriag
 
 ## To run the project
 ```
-./ms
+./hms
 ```
